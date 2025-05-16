@@ -1,13 +1,24 @@
-const inputQuantidade = document.getElementById("quantidade");
-const inputDe = document.getElementById("de");
-const inputAte = document.getElementById("ate");
 const botaoSortear = document.getElementById("btn-sortear");
 const botaoReiniciar = document.getElementById("btn-reiniciar");
+const resultado = document.getElementById("resultado").querySelector("label");
+
+const mensageDoSorteio = "Números sorteados: ";
+
 
 function sortear() {
-    
+    const inputQuantidade = parseInt(document.getElementById("quantidade").value);
+    const inputDe = parseInt(document.getElementById("de").value);
+    const inputAte = parseInt(document.getElementById("ate").value);
+
+    resultado.innerHTML = "Números sorteados: ";
+    botaoReiniciar.setAttribute("class", "container__botao");
 }
 
 function reiniciar() {
+    document.getElementById("quantidade").value = "";
+    document.getElementById("de").value = "";
+    document.getElementById("ate").value = "";
 
+    resultado.innerHTML = mensageDoSorteio + "nenhum até agora";
+    botaoReiniciar.setAttribute("class", "container__botao-desabilitado");
 }
