@@ -14,10 +14,14 @@ function sortear() {
     let numero;
 
     for (let i = 0; i < inputQuantidade; i++) {
-        numero = obterNumeroAleatorio(inputDe, inputAte);
+        do {
+            numero = obterNumeroAleatorio(inputDe, inputAte);
+        } while (numerosSorteados.includes(numero));
+
         numerosSorteados.push(numero);
     }
 
+    numerosSorteados.sort((a, b) => a - b);
     resultado.innerHTML = "Números sorteados: " + numerosSorteados;
     botaoReiniciar.setAttribute("class", "container__botao");
 }
