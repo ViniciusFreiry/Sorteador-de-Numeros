@@ -10,8 +10,20 @@ function sortear() {
     const inputDe = parseInt(document.getElementById("de").value);
     const inputAte = parseInt(document.getElementById("ate").value);
 
-    resultado.innerHTML = "Números sorteados: ";
+    const numerosSorteados = [];
+    let numero;
+
+    for (let i = 0; i < inputQuantidade; i++) {
+        numero = obterNumeroAleatorio(inputDe, inputAte);
+        numerosSorteados.push(numero);
+    }
+
+    resultado.innerHTML = "Números sorteados: " + numerosSorteados;
     botaoReiniciar.setAttribute("class", "container__botao");
+}
+
+function obterNumeroAleatorio(min, max) {
+    return parseInt(Math.random() * (max + 1 - min) + min);
 }
 
 function reiniciar() {
